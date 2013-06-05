@@ -2,6 +2,8 @@ library sprintf;
 
 import 'dart:math';
 
+import 'package:intl/intl.dart';
+
 part 'src/formatters/Formatter.dart';
 part 'src/formatters/int_formatter.dart';
 part 'src/formatters/float_formatter.dart';

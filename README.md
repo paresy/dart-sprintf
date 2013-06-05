@@ -17,20 +17,26 @@ dependencies:
 
 then run **pub install**.
 
-Next, import dart-sprintf:
+Next, import dart-sprintf and the required dependencies:
 
 ```
+import 'package:intl/intl.dart';
+import 'package:intl/intl_browser.dart';
 import 'package:sprintf/sprintf.dart';
 ```
 
 ### Example
 ```
+import 'package:intl/intl.dart';
+import 'package:intl/intl_browser.dart';
 import 'package:sprintf/sprintf.dart';
 
 void main() {
-	print(sprintf("%04i", [-42]));
-	print(sprintf("%s %s", ["Hello", "World"]));
-	print(sprintf("%#04x", [10]));
+	findSystemLocale().then((String locale) {
+		print(sprintf("%04i", [-42]));
+		print(sprintf("%s %s", ["Hello", "World"]));
+		print(sprintf("%#04x", [10]));
+	}
 }
 ```
 
@@ -44,6 +50,7 @@ Limitations
 -----------
 
 * Negative numbers are wrapped as 64bit ints when formatted as hex or octal.
+* %F should not be locale aware
 
 Differences to C's printf
 
