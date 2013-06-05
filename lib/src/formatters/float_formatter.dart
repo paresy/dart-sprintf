@@ -20,6 +20,10 @@ class FloatFormatter extends Formatter {
     }
 
     String arg_str = _arg.toDouble().toString();
+    
+    //This one is required for dart2js, which skips precision digits in contrast to the DartVM
+    if(arg_str.indexOf(".") == -1)
+      arg_str = arg_str + ".0";    
 
     Match m1 = _number_rx.firstMatch(arg_str);
     if (m1 != null) {
