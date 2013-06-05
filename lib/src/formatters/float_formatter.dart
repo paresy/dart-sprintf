@@ -19,7 +19,7 @@ class FloatFormatter extends Formatter {
       _arg = -_arg;
     }
 
-    String arg_str = _arg.toDouble().toString();
+    String arg_str = _arg.toDouble().toString().replaceAll(",", ".");
 
     Match m1 = _number_rx.firstMatch(arg_str);
     if (m1 != null) {
