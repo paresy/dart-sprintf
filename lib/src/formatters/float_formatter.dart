@@ -190,8 +190,10 @@ class FloatFormatter extends Formatter {
       List<String> trailing_digits =  _digits.sublist(offset, offset + precision);
 
       var trailing_zeroes = trailing_digits.fold('', (i,e) => "${i}${e}");
-            
-      ret = "${ret}${new NumberFormat().symbols.DECIMAL_SEP}${trailing_zeroes}";
+	  
+      if(trailing_zeroes.length > 0) {            
+        ret = "${ret}${new NumberFormat().symbols.DECIMAL_SEP}${trailing_zeroes}";
+      }
     }
 
     return ret;
