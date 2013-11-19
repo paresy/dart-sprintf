@@ -19,7 +19,7 @@ class FloatFormatter extends Formatter {
       _arg = -_arg;
     }
 
-    String arg_str = _arg.toDouble().toString();
+    String arg_str = _arg.toDouble().toStringAsFixed(8);
     
     //This one is required for dart2js, which skips precision digits in contrast to the DartVM
     if(arg_str.indexOf(".") == -1)
