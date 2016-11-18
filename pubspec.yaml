@@ -1,7 +1,11 @@
 name: sprintf
-version: 1.0.7
-author: Richard Eames <dartsprintf@naddiseo.ca>
+version: 1.1.1
+authors:
+- Richard Eames <dartsprintf@naddiseo.ca>
+- Michael Maroszek <mm@ip-symcon.de>
 description: Dart implementation of sprintf
 homepage: https://github.com/Naddiseo/dart-sprintf
+dependencies:
+  intl: 0.9.0
 dev_dependencies:
-  unittest: any
+  test: any

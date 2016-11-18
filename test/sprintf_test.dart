@@ -1,12 +1,10 @@
 library sprintf_test;
 
-import 'dart:math';
-
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 import 'package:sprintf/sprintf.dart';
 
-part 'test_data.dart';
+part 'testing_data.dart';
 
 test_testdata() {
   expectedTestData.forEach((prefix, type_map) {
@@ -46,6 +44,18 @@ test_bug0001() {
   test("|%x|%X| 255", () => expect(sprintf("|%x|%X|", [255, 255]), '|ff|FF|'));
 }
 
+test_bug0006a() {
+  test("|%.0f| 5.466", () => expect(sprintf("|%.0f|", [5.466]), '|5|'));
+  test("|%.0g| 5.466", () => expect(sprintf("|%.0g|", [5.466]), '|5|'));
+  test("|%.0e| 5.466", () => expect(sprintf("|%.0e|", [5.466]), '|5e+00|'));
+}
+
+test_bug0006b() {
+  test("|%.2f| 5.466", () => expect(sprintf("|%.2f|", [5.466]), '|5.47|'));
+  test("|%.2g| 5.466", () => expect(sprintf("|%.2g|", [5.466]), '|5.5|'));
+  test("|%.2e| 5.466", () => expect(sprintf("|%.2e|", [5.466]), '|5.47e+00|'));
+}
+
 test_javascript_decimal_limit() {
   test("%d 9007199254740991", () => expect(sprintf("|%d|", [9007199254740991]), '|9007199254740991|'));
   test("%d 9007199254740992", () => expect(sprintf("|%d|", [9007199254740992]), '|9007199254740992|'));
@@ -82,6 +92,12 @@ test_large_exponents_f() {
   test("|%f| -1.79e-308", () => expect(sprintf("|%f|", [-1.79e-308]), '|-1.790000e-308|'));
 }
 
+test_object_to_string() {
+  List<String> list = ["foo", "bar"];
+  int i= 1;
+  test("|%s| ['foo', 'bar'].toString()", () => expect(sprintf("%s", [list]), "[foo, bar]"));
+}
+
 main() {
   if (true) {
     test_testdata();
@@ -92,5 +108,9 @@ main() {
    // test_large_exponents_f();
 
     test_bug0001();
+    test_bug0006a();
+    test_bug0006b();
+
+    test_object_to_string();
   }
 }

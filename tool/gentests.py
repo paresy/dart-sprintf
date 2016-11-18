@@ -5,7 +5,7 @@ import os
 
 sprintf = CDLL('libc.so.6').sprintf
 
-float_tests = [123.0, -123.0, 0.0, 1.79E+20, -1.79E+20, 1.79E-20, -1.79E-20]
+float_tests = [123.0, -123.0, 0.0, 1.79E+20, -1.79E+20, 1.79E-20, -1.79E-20, 5.4444466]
 int_tests = [123, -123, 0, 9007199254740991]
 
 _test_suite_input = {
@@ -96,7 +96,7 @@ for prefix, type_map in expected.items():
 				raise
 
 this_dir = os.path.dirname(os.path.abspath(__file__))
-test_data_path = os.path.abspath(os.path.join(this_dir, '..', 'test', 'test_data.dart'))
+test_data_path = os.path.abspath(os.path.join(this_dir, '..', 'test', 'testing_data.dart'))
 
 def prettify(expr):
 	formatted_data = pformat(expr)
@@ -111,7 +111,7 @@ def prettify(expr):
 
 with open(test_data_path, 'w') as fp:
 	
-	
+	fp.write('part of sprintf_test;\n')
 	fp.write('var expectedTestData = ')
 	fp.write(prettify(new_expected))
 	fp.write(';\n')

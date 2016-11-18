@@ -2,10 +2,10 @@ part of sprintf;
 
 class IntFormatter extends Formatter {
   int _arg;
-  const int MAX_INT = 0xffffffffffffffff; // 64bit
+  static const int MAX_INT = 0xffffffffffffffff; // 64bit
   IntFormatter(this._arg, var fmt_type, var options) : super(fmt_type, options);
 
-  String toString() {
+  String asString() {
     String ret = '';
     String prefix = '';
 
