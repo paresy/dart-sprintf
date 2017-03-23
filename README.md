@@ -1,9 +1,8 @@
 dart-sprintf
 ============
 
-Dart implementation of sprintf.
-
-[![Build Status](https://travis-ci.org/Naddiseo/dart-sprintf.svg?branch=master)](https://travis-ci.org/Naddiseo/dart-sprintf/)
+Dart implementation of sprintf. 
+This is a fork that adds localization!
 
 Getting Started
 ---------------
