@@ -6,6 +6,6 @@ authors:
 description: Dart implementation of sprintf
 homepage: https://github.com/Naddiseo/dart-sprintf
 dependencies:
-  intl: 0.9.0
+  intl: any
 dev_dependencies:
   test: any
