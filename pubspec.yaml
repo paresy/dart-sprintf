@@ -1,5 +1,5 @@
 name: sprintf
-version: 3.0.2
+version: 4.0.0
 authors:
 - Richard Eames <dartsprintf@naddiseo.ca>
 - Michael Maroszek <mm@ip-symcon.de>
@@ -7,5 +7,7 @@ description: Dart implementation of sprintf
 homepage: https://github.com/Naddiseo/dart-sprintf
 dependencies:
   intl: any
+environment:
+  sdk: '<3.0.0'
 dev_dependencies:
   test: any
